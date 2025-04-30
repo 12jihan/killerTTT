@@ -1,5 +1,6 @@
 -- local love = require("love")
-
+local key_inputs = require("key_inputs")
+local player = require("key_inputs")
 local array = {}
 local maxR, maxC = 3, 3
 local x, y = 0, 0
@@ -16,10 +17,10 @@ local w, h = 200, 200
 
 function love.load() end
 
-function love.update() end
+function love.update(dt)
+	key_inputs.controls(player)
+end
 
-function love.draw() end
-
-function love.keypressed(key)
-	print(key)
+function love.draw()
+	love.graphics.circle("fill", player.x, player.y, 100)
 end
